@@ -17,8 +17,11 @@ import Wasp.Generator.ServerGenerator.Common (serverRootDirInProjectRootDir)
 -- | NOTE: The expectation is that `npm install` was already executed
 -- such that we can use the locally installed package.
 -- This assumption is ok since it happens during compilation now.
+--
+-- TODO: `SP.fromRelFile [SP.relfile|./node_modules/.bin/prisma|]` returns "node_modules/.bin/prisma",
+-- but that should be fine still, right?
 npxPrismaCmd :: String
-npxPrismaCmd = SP.fromRelFile [SP.relfile|./node_modules/.bin/prisma|]
+npxPrismaCmd = "./node_modules/.bin/prisma"
 
 migrateDev :: Path' Abs (Dir ProjectRootDir) -> Maybe String -> J.Job
 migrateDev projectDir maybeMigrationName = do
