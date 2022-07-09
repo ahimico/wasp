@@ -1,0 +1,11 @@
+tasks:
+  - init: install haskell related stuff
+    command: curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+
+image:
+  file: .gitpod.Dockerfile
+
+vscode:
+  extensions:
+    - haskell.haskell
+    - ms-azuretools.vscode-docker
